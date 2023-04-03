@@ -10,7 +10,7 @@ class TfController extends BaseController
     $model = model(MoodModel::class);
 
     return view('templates/header')
-        . view('mood/index')
+        . view('TrainingFactory/index')
         . view('templates/footer');
     }
 }

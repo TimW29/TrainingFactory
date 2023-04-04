@@ -1,3 +1,3 @@
-<em>&copy; 2023</em>
+<em></em>
 </body>
 </html>

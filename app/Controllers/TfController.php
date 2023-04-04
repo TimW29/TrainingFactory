@@ -7,9 +7,13 @@ class TfController extends BaseController
 {
     public function index(){
         
-    $model = model(MoodModel::class);
+    $model = model(TFModel::class);
+    
+    $data = [
+        'lessen' => $model->getLes()
+    ];
 
-    return view('templates/header')
+    return view('templates/header', $data)
         . view('TrainingFactory/index')
         . view('templates/footer');
     }

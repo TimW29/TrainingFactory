@@ -4,5 +4,5 @@
     }
 </style>
 <body>
-    <h2>Hier kan u uw lessen zien.</h2>
+    <h2>Hier kan u uw profiel zien.</h2>
 </body>

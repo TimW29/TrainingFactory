@@ -4,5 +4,5 @@
     }
 </style>
 <body>
-    <h2>Hier kan u uw lessen zien.</h2>
+    <h2>Hier kan u de producten kopen</h2>
 </body>

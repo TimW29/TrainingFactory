@@ -30,7 +30,7 @@ li a:hover {
 </head>
 <body>
     <ul>
-        <li><a>Lessen</li>
+        <li><a href="http://localhost:8080/index.php">Lessen</li>
         <li><a>Shop</li>
         <li><a>Profiel</li>
         <li><a>Admin</li>

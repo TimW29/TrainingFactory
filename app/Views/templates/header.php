@@ -31,8 +31,8 @@ li a:hover {
 <body>
     <ul>
         <li><a href="http://localhost:8080/index.php">Lessen</li>
-        <li><a>Shop</li>
-        <li><a>Profiel</li>
-        <li><a>Admin</li>
+        <li><a href="http://localhost:8080/TrainingFactory/shop">Shop</li>
+        <li><a href="http://localhost:8080/TrainingFactory/profiel">Profiel</li>
+        <li><a href="localhost:8080/TrainingFactory/admin">Admin</li>
     </ul>
 </body>

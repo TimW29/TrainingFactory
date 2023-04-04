@@ -31,6 +31,9 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', [TfController::class, 'index']);
+$routes->get('TrainingFactory/shop', [TfController::class, 'shop']);
+$routes->get('TrainingFactory/profiel', [TfController::class, 'profiel']);
+$routes->get('TrainingFactory/admin', [TfController::class, 'admin']);
 $routes->get('TrainingFactory/(:segment)', [TfController::class, 'view']);
 $routes->get('TrainingFactory', [TfController::class, 'index']);
 

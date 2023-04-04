@@ -17,5 +17,26 @@ class TfController extends BaseController
         . view('TrainingFactory/index')
         . view('templates/footer');
     }
+
+    public function shop(){
+
+    return view('templates/header')
+        . view('TrainingFactory/shop')
+        . view('templates/footer');
+    }
+
+    public function profiel(){
+    
+    return view('templates/header')
+        . view('TrainingFactory/profiel')
+        . view('templates/footer');
+    }
+
+    public function admin(){
+    
+    return view('templates/header')
+        . view('TrainingFactory/profiel')
+        . view('templates/footer');
+    }
 }
 ?>

@@ -40,7 +40,7 @@ class TfController extends BaseController
     public function admin(){
     
     return view('templates/header')
-        . view('TrainingFactory/profiel')
+        . view('TrainingFactory/admin')
         . view('templates/footer');
     }
 }

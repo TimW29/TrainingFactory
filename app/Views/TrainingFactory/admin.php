@@ -6,10 +6,9 @@
 <body>
     <h2>Hier kan u de lessen aanpassen.</h2>
     <?php
-    if($gebruikers[$id]->rol == "instructeur"){
-        echo("welkom instructeur");
-        
-    }
+    if(auth()->user()->rol == "admin"){
+        echo("goed bezig steven");
+        }
     ?>
 
 </body>

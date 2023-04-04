@@ -6,9 +6,8 @@
 <body>
     <h2>Hier kan u de producten kopen</h2>
     <?php 
-    if($gebruikers[0]->rol == "instructeur"){
+    if(auth()->user()->rol == "admin"){
     echo("goed bezig steven");
-    echo(auth()->user()->username);
     }
     ?>
 </body>

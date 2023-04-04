@@ -20,6 +20,17 @@ class TfModel extends Model
 
         return $selection->getResult();
     }
+    public function getGebruiker(){
+
+        $user = auth()->user();
+        $db = db_connect();
+        $sql = "SELECT * FROM `gebruikers`;";
+
+        $selection =$db->query($sql);
+
+        return $selection->getResult();
+    }
 }
+    
 
 ?>

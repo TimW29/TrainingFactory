@@ -30,9 +30,16 @@ li a:hover {
 </head>
 <body>
     <ul>
+<<<<<<< Updated upstream
         <li><a href="http://localhost:8080/index.php">Lessen</a></li>
         <li><a href="http://localhost:8080/TrainingFactory/shop">Shop</a></li>
         <li><a href="http://localhost:8080/TrainingFactory/profiel">Profiel</a></li>
         <li><a href="http://localhost:8080/TrainingFactory/admin">Admin</a></li>
+=======
+        <li><a href="/index.php">Lessen</a></li>
+        <li><a href="/TrainingFactory/shop">Shop</a></li>
+        <li><a href="/TrainingFactory/profiel">Profiel</a></li>
+        <li><a href="/TrainingFactory/admin">Admin</a></li>
+>>>>>>> Stashed changes
     </ul>
 </body>

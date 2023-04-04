@@ -65,6 +65,7 @@ class Auth extends ShieldAuth
         'remember_tokens'   => 'auth_remember_tokens',
         'groups_users'      => 'auth_groups_users',
         'permissions_users' => 'auth_permissions_users',
+        'rol'               => 'rol'
     ];
 
     /**

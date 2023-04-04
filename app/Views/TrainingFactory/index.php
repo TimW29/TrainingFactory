@@ -18,8 +18,10 @@
     for ($id = 0; $id < count($lessen);$id++): ?>
     <div class=container>
         <div class="les">
-            <?php echo($lessen[$id]->tijd);?>
+            <?php echo('de les is begint om '. $lessen[$id]->tijd);?>
+            <?php echo('en het is op '. $lessen[$id]->datum);?>
             <?php echo("<br>het aantal max deelnemers zijn ". $lessen[$id]->maxdeelnemers);?>
+            <?php echo("<br>beschrijving: ". $lessen[$id]->beschrijving);?>
         </div>
     </div>
 <?php endfor; ?>

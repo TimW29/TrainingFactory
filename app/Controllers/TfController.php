@@ -10,7 +10,7 @@ class TfController extends BaseController
     $model = model(TFModel::class);
     
     $data = [
-        'lessen' => $model->getLes()
+        'lessen' => $model->getLes(),
     ];
 
     return view('templates/header', $data)
@@ -20,7 +20,12 @@ class TfController extends BaseController
 
     public function shop(){
 
-    return view('templates/header')
+        $model = model(TFModel::class);
+
+        $data = [
+            'gebruikers' => $model->getGebruiker()
+        ];
+    return view('templates/header', $data)
         . view('TrainingFactory/shop')
         . view('templates/footer');
     }

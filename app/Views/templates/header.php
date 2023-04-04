@@ -30,9 +30,9 @@ li a:hover {
 </head>
 <body>
     <ul>
-        <li><a href="http://localhost:8080/index.php">Lessen</li>
-        <li><a href="http://localhost:8080/TrainingFactory/shop">Shop</li>
-        <li><a href="http://localhost:8080/TrainingFactory/profiel">Profiel</li>
-        <li><a href="localhost:8080/TrainingFactory/admin">Admin</li>
+        <li><a href="http://localhost:8080/index.php">Lessen</a></li>
+        <li><a href="http://localhost:8080/TrainingFactory/shop">Shop</a></li>
+        <li><a href="http://localhost:8080/TrainingFactory/profiel">Profiel</a></li>
+        <li><a href="http://localhost:8080/TrainingFactory/admin">Admin</a></li>
     </ul>
 </body>

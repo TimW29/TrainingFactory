@@ -41,7 +41,8 @@ class TfController extends BaseController
         $model = model(TFModel::class);
 
         $data = [
-            'gebruikers' => $model->getGebruiker()
+            'gebruikers' => $model->getGebruiker(),
+            'email' => $model->getEmail()
         ];
     return view('templates/header', $data)
         . view('TrainingFactory/admin')
@@ -53,7 +54,7 @@ class TfController extends BaseController
         // Checks whether the form is submitted.
         if (! $this->request->is('post')) {
             // The form is not submitted, so returns the form.
-            return view('templates/header', ['title' => 'Create a news item'])
+            return view('templates/header', ['title' => 'maak een les aan'])
                 . view('trainingfactory/create')
                 . view('templates/footer');
         }
@@ -66,7 +67,7 @@ class TfController extends BaseController
             'body'  => 'required|max_length[5000]|min_length[10]',
         ])) {
             // The validation fails, so returns the form.
-            return view('templates/header', ['title' => 'Create a news item'])
+            return view('templates/header', ['title' => 'maak een les aan'])
                 . view('trainingfactory/create')
                 . view('templates/footer');
         }
@@ -80,7 +81,7 @@ class TfController extends BaseController
         ]);
 
         return view('templates/header', ['title' => 'Create a news item'])
-            . view('news/success')
+            . view('trainingfactory/admin')
             . view('templates/footer');
     }
     

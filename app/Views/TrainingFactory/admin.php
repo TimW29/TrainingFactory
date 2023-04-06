@@ -5,7 +5,7 @@
     .users{
         background-color: aqua;
         width: auto;
-        height: 50px;
+        height: auto;
     }
     .container{
         display: inline-grid;
@@ -22,6 +22,7 @@
         <div class='users'>
           <?php  
           echo("naam: ". $gebruikers[$id]->naam.'<br>');
+          echo("email: ". $email[$id]->secret .'<br>');
           echo('rol: '.$gebruikers[$id]->rol);
             ?>
             </div>
@@ -29,7 +30,7 @@
         endfor;
 }else if(auth()->user()->rol == "instructeur"){
     echo("<h2>maak hier uw lessen aan</h2>");
-    include("create.php");
+    echo("<a href=http://localhost:8080/TrainingFactory/create>maak hier een les aan</a>");
 }
     ?>
     

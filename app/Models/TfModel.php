@@ -34,7 +34,18 @@ class TfModel extends Model
     {
         $user = auth()->user();
         $db = db_connect();
-        $sql = "SELECT `secret` FROM `auth_identities` ORDER BY `id` ASC;";
+        $sql = "SELECT * FROM `auth_identities` ORDER BY `id` ASC;";
+
+        $selection =$db->query($sql);
+
+        return $selection->getResult();
+    }
+
+    public function getUser()
+    {
+        $user = auth()->user();
+        $db = db_connect();
+        $sql = "SELECT * FROM `users` ORDER BY `id` ASC;";
 
         $selection =$db->query($sql);
 

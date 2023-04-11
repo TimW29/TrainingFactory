@@ -42,7 +42,9 @@ class TfController extends BaseController
 
         $data = [
             'gebruikers' => $model->getGebruiker(),
-            'email' => $model->getEmail()
+            'email' => $model->getEmail(),
+            'lessen' => $model->getLes(),
+            'user'=> $model->getUser()
         ];
     return view('templates/header', $data)
         . view('TrainingFactory/admin')
@@ -54,20 +56,23 @@ class TfController extends BaseController
         // Checks whether the form is submitted.
         if (! $this->request->is('post')) {
             // The form is not submitted, so returns the form.
-            return view('templates/header', ['title' => 'maak een les aan'])
+            return view('templates/header', ['beschrijving' => 'maak een les aan'])
                 . view('trainingfactory/create')
                 . view('templates/footer');
         }
 
-        $post = $this->request->getPost(['title', 'body']);
+        $post = $this->request->getPost(['beschrijving','maxdeelnemers','date','tijd','instructeur']);
 
         // Checks whether the submitted data passed the validation rules.
         if (! $this->validateData($post, [
-            'title' => 'required|max_length[255]|min_length[3]',
-            'body'  => 'required|max_length[5000]|min_length[10]',
+            'beschrijving' => 'required|max_length[255]|min_length[3]',
+            'maxdeelnemers'  => 'required|max_length[5000]|min_length[1]',
+            'date' => 'required|max_length[5000]|min_length[1]',
+            'tijd' => 'required|max_length[5000]|min_length[1]',
+            'instructeur' => 'required|max_length[5000]|min_length[1]',
         ])) {
             // The validation fails, so returns the form.
-            return view('templates/header', ['title' => 'maak een les aan'])
+            return view('templates/header', ['beschrijving' => 'maak een les aan'])
                 . view('trainingfactory/create')
                 . view('templates/footer');
         }
@@ -75,12 +80,12 @@ class TfController extends BaseController
         $model = model(TFModel::class);
 
         $model->save([
-            'title' => $post['title'],
-            'slug'  => url_title($post['title'], '-', true),
-            'body'  => $post['body'],
+            'beschrijving' => $post['beschrijving'],
+            'slug'  => url_title($post['beschrijving'], '-', true),
+            'maxdeelnemers'  => $post['maxdeelnemers'],
         ]);
 
-        return view('templates/header', ['title' => 'Create a news item'])
+        return view('templates/header', ['beschrijving' => 'Create a news item'])
             . view('trainingfactory/admin')
             . view('templates/footer');
     }

@@ -22,11 +22,14 @@
         <div class='users'>
           <?php  
           echo("naam: ". $gebruikers[$id]->naam.'<br>');
-          echo("email: ". $email[$id]->secret .'<br>');
+          echo("email: ". $email[$id]->secret .'<br>'); 
+          echo("telefoonummer: ". $user[$id]->telefoonnummer .'<br>');
+          echo("geboortedatum: ". $user[$id]->geboortedatum .'<br>');
           echo('rol: '.$gebruikers[$id]->rol);
             ?>
             </div>
-        </div><?php
+        </div>
+        <?php
         endfor;
 }else if(auth()->user()->rol == "instructeur"){
     echo("<h2>maak hier uw lessen aan</h2>");

@@ -7,7 +7,7 @@
     exit;
 }?>
 
-<form action="/trainingfactory/admin" method="post">
+<form action="/TrainingFactory/create" method="post">
     <?= csrf_field() ?>
 
     <label for="title">kies wat u gaat doen</label>
@@ -19,14 +19,14 @@
     <br>
 
     voer het max aantal spelers in(max 20)<br>
-    <input value="<?= set_value('maxdeelnemers') ?>" for='maxdeelnemers' type="number" max="20" name="" />
+    <input value="<?= set_value('maxdeelnemers') ?>" name='maxdeelnemers' for='maxdeelnemers' type="number" max="20" />
     <br>
     instructeur:
-    <input for=body name="body" value='<?php echo(auth()->user()->username) ?>' disabled><br>
+    <input value="<?= set_value('instructeur') ?>" name='instructeur' for='instructeur' value='<?php echo(auth()->user()->username) ?>' /><br>
     kies een tijd en een datum:
-    <input for="date" type=date>
-    <input for='tijd' type=time step='1'><br>
+    <input type="date" name="date" value="<?= set_value('date') ?>" />
+    <input value="<?= set_value('tijd') ?>" name='tijd' for='tijd' type=time step='1' /><br>
     
 
-    <input type="submit" name="submit" value="voeg les toe">
+    <input type="submit" name="submit" value="voeg les toe" />
 </form> 

@@ -19,7 +19,7 @@
     <div class='container'>
         <div class="les">
             <?php echo('de les is begint om '. $lessen[$id]->tijd);?>
-            <?php echo('en het is op '. $lessen[$id]->datum);?>
+            <?php echo('en het is op '. $lessen[$id]->date);?>
             <?php echo("<br>het aantal max deelnemers zijn ". $lessen[$id]->maxdeelnemers);?>
             <?php echo("<br>beschrijving: ". $lessen[$id]->beschrijving);?>
             <?php if(auth()->user()->rol == "klant"){

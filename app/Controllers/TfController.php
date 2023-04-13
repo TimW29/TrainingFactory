@@ -83,6 +83,9 @@ class TfController extends BaseController
             'beschrijving' => $post['beschrijving'],
             'slug'  => url_title($post['beschrijving'], '-', true),
             'maxdeelnemers'  => $post['maxdeelnemers'],
+            'date' => $post['date'],
+            'tijd' => $post['tijd'],
+            'instructeur' => $post['instructeur'],
         ]);
 
         return view('templates/header', ['beschrijving' => 'Create a news item'])

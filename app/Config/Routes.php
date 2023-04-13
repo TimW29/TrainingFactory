@@ -34,7 +34,7 @@ $routes->get('/', [TfController::class, 'index']);
 $routes->get('TrainingFactory/shop', [TfController::class, 'shop']);
 $routes->get('TrainingFactory/profiel', [TfController::class, 'profiel']);
 $routes->get('TrainingFactory/admin', [TfController::class, 'admin']);
-$routes->get('TrainingFactory/create', [TfController::class, 'create']);
+$routes->match(['get', 'post'],'TrainingFactory/create', [TfController::class, 'create']);
 $routes->get('TrainingFactory/(:segment)', [TfController::class, 'view']);
 $routes->get('TrainingFactory', [TfController::class, 'index']);
 

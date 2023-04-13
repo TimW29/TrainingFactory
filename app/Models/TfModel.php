@@ -6,9 +6,9 @@ use CodeIgniter\Model;
 
 class TfModel extends Model
 {
-    // protected $table = 'lessen';
+    protected $table = 'lessen';
 
-    protected $allowedFields = ['tijd','datum','maxdeelnemers','instructeur','beschrijving'];
+    protected $allowedFields = ['tijd','date','maxdeelnemers','instructeur','beschrijving'];
 
     public function getLes()
     {

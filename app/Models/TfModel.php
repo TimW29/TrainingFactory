@@ -51,6 +51,16 @@ class TfModel extends Model
 
         return $selection->getResult();
     }
+    public function getItems()
+    {
+        $user = auth()->user();
+        $db = db_connect();
+        $sql = "SELECT * FROM `producten` ORDER BY `id` ASC;";
+
+        $selection =$db->query($sql);
+
+        return $selection->getResult();
+    }
 }
     
 

@@ -23,7 +23,7 @@ class TfController extends BaseController
         $model = model(TFModel::class);
 
         $data = [
-            'gebruikers' => $model->getGebruiker()
+            'producten' => $model->getItems()
         ];
     return view('templates/header', $data)
         . view('TrainingFactory/shop')
@@ -48,6 +48,15 @@ class TfController extends BaseController
         ];
     return view('templates/header', $data)
         . view('TrainingFactory/admin')
+        . view('templates/footer');
+    }
+    public function shopform(){
+        $model = model(TFModel::class);
+
+        $data = [
+        ];
+    return view('templates/header', $data)
+        . view('TrainingFactory/shopform')
         . view('templates/footer');
     }
     public function create() {
@@ -81,11 +90,16 @@ class TfController extends BaseController
 
         $model->save([
             'beschrijving' => $post['beschrijving'],
-            'slug'  => url_title($post['beschrijving'], '-', true),
+            'instructeur'  => $post['instructeur'],
             'maxdeelnemers'  => $post['maxdeelnemers'],
+<<<<<<< Updated upstream
             'date' => $post['date'],
             'tijd' => $post['tijd'],
             'instructeur' => $post['instructeur'],
+=======
+            'tijd' => $post['tijd'],
+            'datum' => $post['datum']
+>>>>>>> Stashed changes
         ]);
 
         return view('templates/header', ['beschrijving' => 'Create a news item'])

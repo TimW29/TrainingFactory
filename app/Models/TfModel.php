@@ -6,10 +6,9 @@ use CodeIgniter\Model;
 
 class TfModel extends Model
 {
-    protected $table = 'producten';
-    // protected $table = 'lessen';
+    protected $table = 'lessen';
 
-    protected $allowedFields = ['naam','prijs','foto','tijd','date','maxdeelnemers','instructeur','beschrijving'];
+    protected $allowedFields = ['tijd','date','maxdeelnemers','instructeur','beschrijving'];
 
     public function getLes()
     {
@@ -52,17 +51,15 @@ class TfModel extends Model
 
         return $selection->getResult();
     }
-    public function getItems()
-    {
-        $user = auth()->user();
-        $db = db_connect();
-        $sql = "SELECT * FROM `producten` ORDER BY `id` ASC;";
+//     public function getItems()
+//     {
+//         $user = auth()->user();
+//         $db = db_connect();
+//         $sql = "SELECT * FROM `producten` ORDER BY `id` ASC;";
 
-        $selection =$db->query($sql);
+//         $selection =$db->query($sql);
 
-        return $selection->getResult();
-    }
-}
-    
-
+//         return $selection->getResult();
+//     }
+ }
 ?>

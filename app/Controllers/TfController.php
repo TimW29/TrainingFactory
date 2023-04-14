@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\TfModel;
+use App\Models\ProductsModel;
 
 class TfController extends BaseController
 {
@@ -20,7 +21,7 @@ class TfController extends BaseController
 
     public function shop(){
 
-        $model = model(TFModel::class);
+        $model = model(ProductsModel::class);
 
         $data = [
             'producten' => $model->getItems()
@@ -75,7 +76,7 @@ class TfController extends BaseController
                 . view('templates/footer');
         }
 
-        $model = model(TFModel::class);
+        $model = model(ProductsModel::class);
 
         $model->save([
             'naam' => $post['naam'],

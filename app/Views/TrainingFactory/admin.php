@@ -11,13 +11,11 @@
         display: inline-grid;
     }
 </style>
-<body>
-    
-    
+<body>  
     <?php
     if(auth()->user()->rol == "admin"){
         echo("<h2>Hier kan u de rollen van gebruikers aanpassen.</h2>");
-        echo("<h4><a href='http://localhost:8080/TrainingFactory/shopform'>maak hier een nieuw product aan</h1>");
+        echo("<h4><a href='http://localhost:8080/TrainingFactory/shopform'>maak hier een nieuw product aan</a></h1>");
         for ($id = 0; $id < count($user);$id++): ?>
         <div class="container">
         <div class='users'>

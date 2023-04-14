@@ -22,9 +22,9 @@
             <?php echo('en het is op '. $lessen[$id]->date);?>
             <?php echo("<br>het aantal max deelnemers zijn ". $lessen[$id]->maxdeelnemers);?>
             <?php echo("<br>beschrijving: ". $lessen[$id]->beschrijving);?>
-            <?php echo("<br>instructeur: ". $lessen[$id]->instructeur);?>
+            <?php echo("<br>instructeur: ". $lessen[$id]->instructeur);?><br>
             <?php if(auth()->user()->rol == "klant"){
-                echo("<br>schrijf je nu in");
+                echo("<button type='submit'>schrijf je nu in</button>");
                 }?>
         </div>
     </div>

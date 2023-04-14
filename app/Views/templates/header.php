@@ -37,10 +37,15 @@ li a:hover {
 <body>
     <ul>
       <img width="50px" height="50px" !important src='<?php "http://".$_SERVER['HTTP_HOST']?>/images/trainingfactorylogo.png'?>
-        <li><a href="http://localhost:8080/index.php">Lessen</a></li>
+         <?php echo '<img src="data:'.auth()->user()->type.';base64,'.base64_encode(auth()->user()->profielfoto).'"/>';?>`
+         <li><a href="http://localhost:8080/index.php">Lessen</a></li>
         <li><a href="http://localhost:8080/TrainingFactory/shop">Shop</a></li>
         <li><a href="http://localhost:8080/TrainingFactory/profiel">Profiel</a></li>
-        <li><a href="http://localhost:8080/TrainingFactory/admin">Admin</a></li>
+      <?php if(auth()->user()->rol == "instructeur" || auth()->user()->rol == "admin"){
+          echo ("<li><a href='http://localhost:8080/TrainingFactory/admin'>Admin</a></li>");
+        }?>
+        <li><a href="http://localhost:8080/logout">loguit</a></li>
+       
         
     </ul>
 </body>

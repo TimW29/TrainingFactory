@@ -32,6 +32,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->match(['get', 'post'], 'TrainingFactory/create', [TfController::class, 'create']);
 $routes->match(['get', 'post'], 'TrainingFactory/shopform', [TfController::class, 'shopform']);
+$routes->match(['get', 'post'], 'TrainingFactory/profielform', [TfController::class, 'profielform']);
 $routes->get('/', [TfController::class, 'index']);
 $routes->get('TrainingFactory/shop', [TfController::class, 'shop']);
 $routes->get('TrainingFactory/profiel', [TfController::class, 'profiel']);

@@ -51,6 +51,67 @@ class TfController extends BaseController
         . view('TrainingFactory/admin')
         . view('templates/footer');
     }
+    public function profielform(){
+        helper('form');
+
+        // Checks whether the form is submitted.
+        if (! $this->request->is('post')) {
+            // The form is not submitted, so returns the form.
+            return view('templates/header', ['beschrijving' => 'maak een nieuw product aan'])
+                . view('trainingfactory/profielform')
+                . view('templates/footer');
+        }
+
+        $post = $this->request->getPost(['geboortedatum','telefoonnummer']);
+
+        // Checks whether the submitted data passed the validation rules.
+        if (! $this->validateData($post, [
+            'geboortedatum' => 'required|max_length[255]|min_length[3]',
+            // 'foto'  => 'required|max_length[5000]|min_length[1]',
+            'telefoonnummer' => 'required|max_length[5000]|min_length[1]',
+        ])) {
+            // The validation fails, so returns the form.
+            return view('templates/header', ['beschrijving' => 'maak een product aan'])
+                . view('trainingfactory/profielform')
+                . view('templates/footer');
+        }
+        $img = $this->request->getFile('profielfoto');
+        var_dump($img);
+        echo $img->getBaseName();
+        $targetDir = "C:/xampp/tmp";
+        // if (count($_FILES)>0) {
+            // var_dump(is_uploaded_file($img->getBasename()));
+            // if(is_uploaded_file($img->getBasename())){
+                
+            //     if(move_uploaded_file($img->getBasename(), "$targetDir/" . $img->getBasename())){
+            //         echo ('test');
+        
+            //     }
+            if($img > null){
+                
+            }else{
+                $imgdata = file_get_contents("$targetDir/" . $img->getBasename());
+                $imgtype = $img->getMimeType();
+                var_dump($imgdata);
+            }
+        // }
+        $model = model(ProfielModel::class);
+
+        $model->update(auth()->user()->id,[
+            'geboortedatum' => $post['geboortedatum'],
+            'telefoonnummer'  => $post['telefoonnummer']
+        ]);
+        if($img > null){
+
+        }else{
+        $model->update(auth()->user()->id,[
+            'profielfoto'  => $imgdata,
+            'type' => $imgtype,
+        ]);}
+        return view('templates/header', ['beschrijving' => 'Create a news item'])
+            . view('trainingfactory/shop')
+            . view('templates/footer');
+    }
     public function shopform(){
         helper('form');
 

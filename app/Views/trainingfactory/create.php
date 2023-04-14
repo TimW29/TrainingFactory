@@ -27,6 +27,5 @@
     <input type="date" name="date" value="<?= set_value('date') ?>" />
     <input value="<?= set_value('tijd') ?>" name='tijd' for='tijd' type=time step='1' /><br>
 
-
     <input type="submit" name="submit" value="voeg les toe" />
 </form>

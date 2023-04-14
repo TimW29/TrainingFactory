@@ -92,14 +92,9 @@ class TfController extends BaseController
             'beschrijving' => $post['beschrijving'],
             'instructeur'  => $post['instructeur'],
             'maxdeelnemers'  => $post['maxdeelnemers'],
-<<<<<<< Updated upstream
             'date' => $post['date'],
             'tijd' => $post['tijd'],
             'instructeur' => $post['instructeur'],
-=======
-            'tijd' => $post['tijd'],
-            'datum' => $post['datum']
->>>>>>> Stashed changes
         ]);
 
         return view('templates/header', ['beschrijving' => 'Create a news item'])

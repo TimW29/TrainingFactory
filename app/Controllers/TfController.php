@@ -85,7 +85,7 @@ class TfController extends BaseController
         ]);
 
         return view('templates/header', ['beschrijving' => 'Create a news item'])
-            . view('trainingfactory/admin')
+            . view('trainingfactory/shop')
             . view('templates/footer');
     }
     public function create() {

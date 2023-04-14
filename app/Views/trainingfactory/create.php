@@ -22,7 +22,7 @@
     <input value="<?= set_value('maxdeelnemers') ?>" name='maxdeelnemers' for='maxdeelnemers' type="number" max="20" />
     <br>
     instructeur:
-    <input value="<?= set_value('instructeur') ?>" name='instructeur' for='instructeur' value='<?php echo(auth()->user()->username) ?>' /><br>
+    <input  name='instructeur' for='instructeur' value='<?= (auth()->user()->username) ?>' /><br>
     kies een tijd en een datum:
     <input type="date" name="date" value="<?= set_value('date') ?>" />
     <input value="<?= set_value('tijd') ?>" name='tijd' for='tijd' type=time step='1' /><br>

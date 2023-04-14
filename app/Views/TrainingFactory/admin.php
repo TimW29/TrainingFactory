@@ -11,9 +11,7 @@
         display: inline-grid;
     }
 </style>
-<body>
-    
-    
+<body>  
     <?php
     if(auth()->user()->rol == "admin"){
         echo("<h2>Hier kan u de rollen van gebruikers aanpassen.</h2>");

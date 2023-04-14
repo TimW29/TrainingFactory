@@ -7,15 +7,17 @@
     exit;
 }?>
 
-<form action="/TrainingFactory/shopform" method="post">
-    <?= csrf_field() ?>
+<!-- <form action="/TrainingFactory/" method="post"> -->
+    <?php echo form_open_multipart("TrainingFactory/shopform"); ?>
 
+    <?= csrf_field() ?>
     <label for="naam">geef het product een naam</label>
     <input type='text' value="<?= set_value('naam') ?>" name="naam" id="naam">
     </select>
     <br>
 
     voer een afbeelding in<br>
+
     <input value="<?= set_value('foto') ?>" accept="image/png, image/jpeg" name='foto' for='foto' type="file" />
     <br>
     hoeveel kost het product

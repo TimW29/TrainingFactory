@@ -62,12 +62,12 @@ class TfController extends BaseController
                 . view('templates/footer');
         }
 
-        $post = $this->request->getPost(['naam','foto','prijs']);
+        $post = $this->request->getPost(['naam','prijs']);
 
         // Checks whether the submitted data passed the validation rules.
         if (! $this->validateData($post, [
             'naam' => 'required|max_length[255]|min_length[3]',
-            'foto'  => 'required|max_length[5000]|min_length[1]',
+            // 'foto'  => 'required|max_length[5000]|min_length[1]',
             'prijs' => 'required|max_length[5000]|min_length[1]',
         ])) {
             // The validation fails, so returns the form.
@@ -75,17 +75,34 @@ class TfController extends BaseController
                 . view('trainingfactory/shopform')
                 . view('templates/footer');
         }
-
+        $img = $this->request->getFile('foto');
+        var_dump($img);
+        echo $img->getBaseName();
+        $targetDir = "C:/xampp/tmp";
+        // if (count($_FILES)>0) {
+            // var_dump(is_uploaded_file($img->getBasename()));
+            // if(is_uploaded_file($img->getBasename())){
+                
+            //     if(move_uploaded_file($img->getBasename(), "$targetDir/" . $img->getBasename())){
+            //         echo ('test');
+        
+            //     }
+                $imgdata = file_get_contents("$targetDir/" . $img->getBasename());
+                $imgtype = $img->getMimeType();
+                var_dump($imgdata);
+            // }
+        // }
         $model = model(ProductsModel::class);
 
         $model->save([
             'naam' => $post['naam'],
-            'foto'  => $post['foto'],
+            'foto'  => $imgdata,
+            'type' => $imgtype,
             'prijs'  => $post['prijs']
         ]);
 
         return view('templates/header', ['beschrijving' => 'Create a news item'])
-            . view('trainingfactory/shop')
+            . view('trainingfactory/admin')
             . view('templates/footer');
     }
     public function create() {

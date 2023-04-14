@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 
 class TfModel extends Model
 {
+    // protected $table = 'producten';
     protected $table = 'lessen';
 
     protected $allowedFields = ['tijd','date','maxdeelnemers','instructeur','beschrijving'];
@@ -14,7 +15,7 @@ class TfModel extends Model
     {
         $user = auth()->user();
         $db = db_connect();
-        $sql = "SELECT * FROM `lessen` ORDER BY `tijd` DESC;";
+        $sql = "SELECT * FROM `lessen` ORDER BY `date` ASC;";
 
         $selection =$db->query($sql);
 
@@ -51,15 +52,5 @@ class TfModel extends Model
 
         return $selection->getResult();
     }
-//     public function getItems()
-//     {
-//         $user = auth()->user();
-//         $db = db_connect();
-//         $sql = "SELECT * FROM `producten` ORDER BY `id` ASC;";
-
-//         $selection =$db->query($sql);
-
-//         return $selection->getResult();
-//     }
  }
 ?>

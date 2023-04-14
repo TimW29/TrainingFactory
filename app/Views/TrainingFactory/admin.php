@@ -17,15 +17,15 @@
     <?php
     if(auth()->user()->rol == "admin"){
         echo("<h2>Hier kan u de rollen van gebruikers aanpassen.</h2>");
-        for ($id = 0; $id < count($gebruikers);$id++): ?>
+        for ($id = 0; $id < count($user);$id++): ?>
         <div class="container">
         <div class='users'>
           <?php  
-          echo("naam: ". $gebruikers[$id]->naam.'<br>');
+          echo("naam: ". $user[$id]->username.'<br>');
           echo("email: ". $email[$id]->secret .'<br>'); 
           echo("telefoonummer: ". $user[$id]->telefoonnummer .'<br>');
           echo("geboortedatum: ". $user[$id]->geboortedatum .'<br>');
-          echo('rol: '.$gebruikers[$id]->rol);
+          echo('rol: '.$user[$id]->rol);
             ?>
             </div>
         </div>

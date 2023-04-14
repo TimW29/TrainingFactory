@@ -18,7 +18,6 @@
     </select>
     <br>
 
-<<<<<<< Updated upstream
     voer het max aantal spelers in(max 20)<br>
     <input value="<?= set_value('maxdeelnemers') ?>" name='maxdeelnemers' for='maxdeelnemers' type="number" max="20" />
     <br>
@@ -27,17 +26,7 @@
     kies een tijd en een datum:
     <input type="date" name="date" value="<?= set_value('date') ?>" />
     <input value="<?= set_value('tijd') ?>" name='tijd' for='tijd' type=time step='1' /><br>
-=======
-</label name='maxdeelnemers'>voer het max aantal spelers in(max 20)<br></label>
-    <input value="<?= set_value('maxdeelnemers') ?>" name='maxdeelnemers' for='maxdeelnemers' type="number" max="20" name="" />
-    <br>
-    instructeur:
-    <input for=body name="instructeur" value='<?php echo(auth()->user()->username) ?>' disabled><br>
-    kies een tijd en een datum:
-    <input for="date" name='datum' type='date'>
-    <input for='tijd' type=time name='tijd' step='1'><br>
->>>>>>> Stashed changes
-    
+
 
     <input type="submit" name="submit" value="voeg les toe" />
-</form> 
+</form>

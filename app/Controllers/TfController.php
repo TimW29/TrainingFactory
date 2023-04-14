@@ -51,13 +51,41 @@ class TfController extends BaseController
         . view('templates/footer');
     }
     public function shopform(){
+        helper('form');
+
+        // Checks whether the form is submitted.
+        if (! $this->request->is('post')) {
+            // The form is not submitted, so returns the form.
+            return view('templates/header', ['beschrijving' => 'maak een nieuw product aan'])
+                . view('trainingfactory/shopform')
+                . view('templates/footer');
+        }
+
+        $post = $this->request->getPost(['naam','foto','prijs']);
+
+        // Checks whether the submitted data passed the validation rules.
+        if (! $this->validateData($post, [
+            'naam' => 'required|max_length[255]|min_length[3]',
+            'foto'  => 'required|max_length[5000]|min_length[1]',
+            'prijs' => 'required|max_length[5000]|min_length[1]',
+        ])) {
+            // The validation fails, so returns the form.
+            return view('templates/header', ['beschrijving' => 'maak een product aan'])
+                . view('trainingfactory/shopform')
+                . view('templates/footer');
+        }
+
         $model = model(TFModel::class);
 
-        $data = [
-        ];
-    return view('templates/header', $data)
-        . view('TrainingFactory/shopform')
-        . view('templates/footer');
+        $model->save([
+            'naam' => $post['naam'],
+            'foto'  => $post['foto'],
+            'prijs'  => $post['prijs']
+        ]);
+
+        return view('templates/header', ['beschrijving' => 'Create a news item'])
+            . view('trainingfactory/admin')
+            . view('templates/footer');
     }
     public function create() {
         helper('form');
@@ -92,14 +120,8 @@ class TfController extends BaseController
             'beschrijving' => $post['beschrijving'],
             'instructeur'  => $post['instructeur'],
             'maxdeelnemers'  => $post['maxdeelnemers'],
-<<<<<<< Updated upstream
             'date' => $post['date'],
             'tijd' => $post['tijd'],
-            'instructeur' => $post['instructeur'],
-=======
-            'tijd' => $post['tijd'],
-            'datum' => $post['datum']
->>>>>>> Stashed changes
         ]);
 
         return view('templates/header', ['beschrijving' => 'Create a news item'])

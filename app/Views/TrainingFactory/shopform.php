@@ -1,31 +1,26 @@
 <h2>maak hier uw lessen aan</h2>
 
-
+<?= session()->getFlashdata('error') ?>
+<?= validation_list_errors() ?>
 
 <?php if(auth()->user()->rol == "klant"){
     exit;
 }?>
 
-<form action="/TrainingFactory/create" method="post">
+<form action="/TrainingFactory/shopform" method="post">
     <?= csrf_field() ?>
 
-    <label for="title">kies wat u gaat doen</label>
-    <select value="<?= set_value('beschrijving') ?>" name="beschrijving" id="title">
-        <option value="slazak">slazak</option>
-        <option value="kickboxxen">kickboxxen</option>
-        <option value="fitness">fitness</option>
+    <label for="naam">geef het product een naam</label>
+    <input type='text' value="<?= set_value('naam') ?>" name="naam" id="naam">
     </select>
     <br>
 
-</label name='maxdeelnemers'>voer het max aantal spelers in(max 20)<br></label>
-    <input value="<?= set_value('maxdeelnemers') ?>" name='maxdeelnemers' for='maxdeelnemers' type="number" max="20" name="" />
+    voer een afbeelding in<br>
+    <input value="<?= set_value('foto') ?>" accept="image/png, image/jpeg" name='foto' for='foto' type="file" />
     <br>
-    instructeur:
-    <input for=body name="instructeur" value='<?php echo(auth()->user()->username) ?>' disabled><br>
-    kies een tijd en een datum:
-    <input for="date" name='datum' type='date'>
-    <input for='tijd' type=time name='tijd' step='1'><br>
-    
+    hoeveel kost het product
+    <input value="<?= set_value('prijs') ?>" name='prijs' for='prijs' /><br>
 
-    <input type="submit" name="submit" value="voeg les toe">
-</form> 
+
+    <input type="submit" name="submit" value="voeg les toe" />
+</form>

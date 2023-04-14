@@ -6,15 +6,16 @@ use CodeIgniter\Model;
 
 class TfModel extends Model
 {
-    protected $table = 'lessen';
+    protected $table = 'producten';
+    // protected $table = 'lessen';
 
-    protected $allowedFields = ['tijd','date','maxdeelnemers','instructeur','beschrijving'];
+    protected $allowedFields = ['naam','prijs','foto','tijd','date','maxdeelnemers','instructeur','beschrijving'];
 
     public function getLes()
     {
         $user = auth()->user();
         $db = db_connect();
-        $sql = "SELECT * FROM `lessen` ORDER BY `tijd` ASC;";
+        $sql = "SELECT * FROM `lessen` ORDER BY `tijd` DESC;";
 
         $selection =$db->query($sql);
 

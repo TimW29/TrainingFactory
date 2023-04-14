@@ -27,7 +27,7 @@
         for ($id = 0; $id < count($producten);$id++): ?>
         <div class='item'>
         <h2><?php echo ($producten[$id]->naam);?><br></h2>
-        <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($producten[$id]->foto).'"/>';?><br>
+        <?php echo '<img src="data:image/jpeg;base64,/>';?><br>
         prijs: €<?php echo ($producten[$id]->prijs);?>
         </div>
     <?php endfor; ?>

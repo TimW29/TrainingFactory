@@ -14,9 +14,11 @@
         height: 150px;
         width: auto;
         display: inline-grid;
+        padding: 5px;
     }
     .item:not(:first-child) {
         padding-left: 5%;
+        padding-top: 1;
 }
 </style>
 <body>
@@ -27,7 +29,7 @@
         for ($id = 0; $id < count($producten);$id++): ?>
         <div class='item'>
         <h2><?php echo ($producten[$id]->naam);?><br></h2>
-        <?php echo '<img src="data:image/png;base64,'.base64_encode($producten[$id]->foto).'"/>';?><br>
+        <?php echo '<img src="data:'.$producten[$id]->type.';base64,'.base64_encode($producten[$id]->foto).'"/>';?><br>
         prijs: €<?php echo ($producten[$id]->prijs);?>
         </div>
     <?php endfor; ?>
